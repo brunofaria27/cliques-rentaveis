@@ -54,70 +54,74 @@
       </nav>
     </header>
 
-    <div id="login_form" class="vh-100">
-      <div class="container-fluid h-custom">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-md-9 col-lg-6 col-xl-5">
-            <img src="img/login.jpg" class="img-fluid" alt="Sample image" />
-          </div>
-          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-            <div id="alerta-erro">
-              <!-- DIV PARA COLOCAR O ERRO -->
+    <container>
+      <div id="login_form" class="vh-100">
+        <div class="container h-custom">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div class="col-md-9 col-lg-6 col-xl-5 mb-3">
+              <img src="img/login.jpg" class="img-fluid" alt="Sample image" />
             </div>
-
-            <form>
-              <!-- Email input -->
-              <div class="form-outline mb-4">
-                <strong
-                  ><label class="form-label" for="form3Example3"
-                    >CPF</label
-                  ></strong
-                >
-                <input
-                  type="text"
-                  id="cpf_login"
-                  class="form-control form-control-lg"
-                  placeholder="Entre com seu CPF"
-                />
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mb-3">
+              <div id="alerta-erro">
+                <!-- DIV PARA COLOCAR O ERRO -->
               </div>
 
-              <!-- Password input -->
-              <div class="form-outline mb-3">
-                <strong
-                  ><label class="form-label" for="form3Example4"
-                    >Senha</label
-                  ></strong
-                >
-                <input
-                  type="password"
-                  id="senha_login"
-                  class="form-control form-control-lg"
-                  placeholder="Entre com sua senha"
-                />
-              </div>
-
-              <div class="text-center text-lg-start mt-4 pt-2">
-                <button
-                  id="entrarB"
-                  type="button"
-                  class="btn btn-primary btn-lg"
-                  style="padding-left: 2.5rem; padding-right: 2.5rem"
-                >
-                  Entrar
-                </button>
-
-                <p class="small fw-bold mt-2 pt-1 mb-0">
-                  Você ainda não tem uma conta?
-                  <a href="cadastro.html" class="link-danger"
-                    >Clique aqui e registre-se!</a
+              <form>
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <strong
+                    ><label class="form-label" for="form3Example3"
+                      >CPF</label
+                    ></strong
                   >
-                </p>
-              </div>
-            </form>
+                  <input
+                    type="text"
+                    id="cpf_login"
+                    class="form-control form-control-lg"
+                    placeholder="Entre com seu CPF"
+                  />
+                </div>
+
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                  <strong
+                    ><label class="form-label" for="form3Example4"
+                      >Senha</label
+                    ></strong
+                  >
+                  <input
+                    type="password"
+                    id="senha_login"
+                    class="form-control form-control-lg"
+                    placeholder="Entre com sua senha"
+                  />
+                </div>
+
+                <div class="text-center text-lg-start mt-4 pt-2">
+                  <button
+                    id="entrarB"
+                    type="button"
+                    class="btn btn-primary btn-lg"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem"
+                  >
+                    Entrar
+                  </button>
+
+                  <p class="small fw-bold mt-2 pt-1 mb-0">
+                    Você ainda não tem uma conta?
+                    <a href="cadastro.html" class="link-danger"
+                      >Clique aqui e registre-se!</a
+                    >
+                  </p>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </container>
 
     <footer
       class="text-center text-white fixed-bottom"

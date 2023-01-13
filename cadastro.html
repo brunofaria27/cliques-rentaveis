@@ -54,111 +54,119 @@
       </nav>
     </header>
 
-    <div id="cadastro-form" class="vh-100">
-      <div class="container-fluid h-custom">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-            <div id="alerta-campos">
-              <!-- DIV PARA COLOCAR O ERRO -->
-            </div>
-
-            <form>
-              <!-- CPF input -->
-              <div class="form-outline mb-1">
-                <strong
-                  ><label class="form-label" for="form3Example3"
-                    >Nome completo</label
-                  ></strong
-                >
-                <input
-                  type="text"
-                  id="nome_completo_cadastro"
-                  class="form-control form-control-lg"
-                  placeholder="Nome completo"
-                  required
-                />
+    <container>
+      <div id="cadastro-form" class="vh-100">
+        <div class="container h-custom">
+          <div
+            class="row d-flex justify-content-center align-items-center h-100"
+          >
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mb-3">
+              <div id="alerta-campos">
+                <!-- DIV PARA COLOCAR O ERRO -->
               </div>
 
-              <!-- CPF input -->
-              <div class="form-outline mb-2">
-                <strong
-                  ><label class="form-label" for="form3Example3"
-                    >CPF</label
-                  ></strong
-                >
-                <input
-                  type="text"
-                  id="cpf_cadastro"
-                  class="form-control form-control-lg"
-                  placeholder="Cadastre seu CPF"
-                  required
-                />
-              </div>
+              <form>
+                <!-- CPF input -->
+                <div class="form-outline mb-1">
+                  <strong
+                    ><label class="form-label" for="form3Example3"
+                      >Nome completo</label
+                    ></strong
+                  >
+                  <input
+                    type="text"
+                    id="nome_completo_cadastro"
+                    class="form-control form-control-lg"
+                    placeholder="Nome completo"
+                    required
+                  />
+                </div>
 
-              <!-- Password input -->
-              <div class="form-outline mb-3">
-                <strong
-                  ><label class="form-label" for="form3Example4"
-                    >Senha</label
-                  ></strong
-                >
-                <input
-                  type="password"
-                  id="senha_cadastro"
-                  class="form-control form-control-lg"
-                  placeholder="Crie uma senha"
-                  required
-                />
-              </div>
+                <!-- CPF input -->
+                <div class="form-outline mb-2">
+                  <strong
+                    ><label class="form-label" for="form3Example3"
+                      >CPF</label
+                    ></strong
+                  >
+                  <input
+                    type="text"
+                    id="cpf_cadastro"
+                    class="form-control form-control-lg"
+                    placeholder="Cadastre seu CPF"
+                    required
+                  />
+                </div>
 
-              <!-- Password input confirm -->
-              <div class="form-outline mb-4">
-                <strong
-                  ><label class="form-label" for="form3Example4"
-                    >Confirmar senha</label
-                  ></strong
-                >
-                <input
-                  type="password"
-                  id="senha_confirma_cadastro"
-                  class="form-control form-control-lg"
-                  placeholder="Confirme sua senha"
-                  required
-                />
-              </div>
+                <!-- Password input -->
+                <div class="form-outline mb-3">
+                  <strong
+                    ><label class="form-label" for="form3Example4"
+                      >Senha</label
+                    ></strong
+                  >
+                  <input
+                    type="password"
+                    id="senha_cadastro"
+                    class="form-control form-control-lg"
+                    placeholder="Crie uma senha"
+                    required
+                  />
+                </div>
 
-              <div
-                id="buttons-cadastro"
-                class="text-center text-lg-start mt-2 pt-2"
-              >
-                <a href="login.html"
-                  ><button
+                <!-- Password input confirm -->
+                <div class="form-outline mb-4">
+                  <strong
+                    ><label class="form-label" for="form3Example4"
+                      >Confirmar senha</label
+                    ></strong
+                  >
+                  <input
+                    type="password"
+                    id="senha_confirma_cadastro"
+                    class="form-control form-control-lg"
+                    placeholder="Confirme sua senha"
+                    required
+                  />
+                </div>
+
+                <div
+                  id="buttons-cadastro"
+                  class="text-center text-lg-start mt-2 pt-2"
+                >
+                  <a href="login.html"
+                    ><button
+                      type="button"
+                      class="btn btn-danger btn-lg cancelar-btn"
+                      style="padding-left: 1.2rem; padding-right: 1.2rem"
+                    >
+                      Cancelar
+                    </button></a
+                  >
+
+                  <button
+                    id="cadastro_sub"
                     type="button"
-                    class="btn btn-danger btn-lg cancelar-btn"
+                    class="btn btn-primary btn-lg cadastrar-btn"
                     style="padding-left: 1.2rem; padding-right: 1.2rem"
                   >
-                    Cancelar
-                  </button></a
-                >
+                    Cadastrar
+                  </button>
+                </div>
+              </form>
+            </div>
 
-                <button
-                  id="cadastro_sub"
-                  type="button"
-                  class="btn btn-primary btn-lg cadastrar-btn"
-                  style="padding-left: 1.2rem; padding-right: 1.2rem"
-                >
-                  Cadastrar
-                </button>
-              </div>
-            </form>
-          </div>
-
-          <div class="col-md-9 col-lg-6 col-xl-5">
-            <img src="img/cadastro.jpg" class="img-fluid" alt="Sample image" />
+            <div class="col-md-9 col-lg-6 col-xl-5 mb-3">
+              <img
+                src="img/cadastro.jpg"
+                class="img-fluid"
+                alt="Sample image"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </container>
 
     <footer
       class="text-center text-white"
