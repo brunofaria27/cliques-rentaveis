@@ -98,7 +98,7 @@ function loginUser(cpf, senha) {
         JSON.stringify(usuarioCorrente)
       );
 
-      alert("Usuário logado com sucesso!");
+      console.log("Usuário logado com sucesso!");
       // Retorna true para usuário encontrado
       return true;
     }
