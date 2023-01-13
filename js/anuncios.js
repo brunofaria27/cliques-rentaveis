@@ -1,5 +1,10 @@
 window.onload = () => {
   window.event.preventDefault();
+
+  if (JSON.parse(sessionStorage.getItem("usuarioCorrente")) == null) {
+    window.location = "login.html";
+  }
+
   showAD();
   showBalanceProf();
 };
