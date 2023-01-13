@@ -10,7 +10,23 @@ document
 
 document.getElementById("ad-btn").addEventListener("click", ganharSaldo);
 
-console.log(round(1.005, 2)); // 1.01
+document.getElementById("ad-btn").addEventListener("click", modalStatus);
+
+function modalStatus(event) {
+  event.preventDefault();
+
+  $("#modalGanho").modal("hide");
+  $("#modalGanho").hide();
+  $(".overlay").fadeIn();
+  $("#loading").fadeIn();
+
+  setTimeout(function () {
+    $(".overlay").fadeOut();
+    $("#loading").fadeOut();
+    $("#modalGanho").show();
+    $("#modalGanho").modal("show");
+  }, 3000);
+}
 
 function ganharSaldo(event) {
   event.preventDefault();
@@ -91,7 +107,7 @@ function updateSaqueValueBalance(event) {
     .fadeOut(400);
   setTimeout(function () {
     window.location.href = "anuncios.html";
-  });
+  }, 3000);
 }
 
 function showBalanceProf() {
@@ -100,8 +116,6 @@ function showBalanceProf() {
   let usuarios = JSON.parse(localStorage.getItem("db_usuarios"));
   let obj = JSON.parse(sessionStorage.getItem("usuarioCorrente"));
   let usuario = usuarios.find((usuario) => usuario.id === obj.id);
-  console.log(usuarios);
-  console.log(usuario);
 
   if (usuario.balance == 0) {
     document.getElementById("saldo-client").innerHTML =
@@ -136,8 +150,7 @@ function showAD() {
         Os tênis mais estilosos e autênticos para te acompanhar em todos
         os momentos. Use o cupom CLUBEVIP e ganhe R$30 na sua compra.
       </p>
-      <a id="ad-btn" class="btn btn-primary" data-toggle="modal"
-      data-target="#modalGanho">Comprar agora!</a>
+      <a id="ad-btn" class="btn btn-primary">Comprar agora!</a>
     </div>
   </div>`,
     `<div class="card shadow" style="width: 18rem">
@@ -160,8 +173,7 @@ function showAD() {
     Coração é espelho da alma, refletindo amor, e vibrando em cor, simplesmente majestoso, deixando claro seu significado maravilhoso, se é amor de verdade tudo pode!
     Consulte nosso pronta entrega.
     </p>
-    <a id="ad-btn" class="btn btn-primary" data-toggle="modal"
-    data-target="#modalGanho">Comprar agora!</a>
+    <a id="ad-btn" class="btn btn-primary" >Comprar agora!</a>
   </div>
 </div>`,
     `<div class="card shadow" style="width: 18rem">
@@ -177,8 +189,7 @@ function showAD() {
     <p class="card-text">
     Venha criar e assistir vídeos 24 horas por dia, no TikTok. Ganhe para assistir e para produzir, estamos esperando por vocês!
     </p>
-    <a id="ad-btn" class="btn btn-primary" data-toggle="modal"
-    data-target="#modalGanho">Comprar agora!</a>
+    <a id="ad-btn" class="btn btn-primary" >Comprar agora!</a>
   </div>
 </div>`,
     `<div class="card shadow" style="width: 18rem">
@@ -197,8 +208,7 @@ function showAD() {
   <p class="card-text">
   Vendas de Verão Emma
   </p>
-  <a id="ad-btn" class="btn btn-primary" data-toggle="modal"
-  data-target="#modalGanho">Comprar agora!</a>
+  <a id="ad-btn" class="btn btn-primary">Comprar agora!</a>
 </div>
 </div>`,
     `<div class="card shadow" style="width: 18rem">
@@ -223,8 +233,7 @@ function showAD() {
   <p class="card-text">
 🔥Por Tempo Limitado
   </p>
-  <a id="ad-btn" class="btn btn-primary" data-toggle="modal"
-  data-target="#modalGanho">Comprar agora!</a>
+  <a id="ad-btn" class="btn btn-primary">Comprar agora!</a>
 </div>
 </div>`,
   ];

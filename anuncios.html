@@ -124,6 +124,12 @@
       </div>
     </div>
 
+    <div class="overlay" style="display: none"></div>
+
+    <div id="loading" class="loading-center" style="display: none">
+      <img src="img/loading.gif" alt="Loading..." width="50" height="50" />
+    </div>
+
     <div
       class="modal fade"
       id="modalGanho"
@@ -134,33 +140,36 @@
     >
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-          <div class="modal-body">
-            <div class="form-outline mb-4">
-              <strong
-                ><p class="d-flex justify-content-center gain">
-                  PARABÉNS, VOCÊ GANHOU 🤑!
-                </p></strong
-              >
-
-              <div id="valor-ganho">
-                <!-- ESPAÇO PARA COLOCAR O VALOR GANHO -->
+          <div id="modal-content">
+            <div class="modal-body">
+              <div class="form-outline mb-4">
+                <strong
+                  ><p class="d-flex justify-content-center gain">
+                    PARABÉNS, VOCÊ GANHOU 🤑!
+                  </p></strong
+                >
+                <div id="valor-ganho">
+                  <!-- ESPAÇO PARA COLOCAR O VALOR GANHO -->
+                </div>
+              </div>
+              <div class="text-center text-lg-start mt-4 pt-2">
+                <a
+                  href="anuncios.html"
+                  id="voltar-ganhar"
+                  type="button"
+                  class="btn btn-success btn-sm"
+                  style="padding-left: 2.5rem; padding-right: 2.5rem"
+                  >Voltar e ganhar</a
+                >
               </div>
             </div>
-
-            <div class="text-center text-lg-start mt-4 pt-2">
-              <a
-                href="anuncios.html"
-                id="voltar-ganhar"
-                type="button"
-                class="btn btn-success btn-sm"
-                style="padding-left: 2.5rem; padding-right: 2.5rem"
-              >
-                Voltar e ganhar
-              </a>
+            <div>
+              <img
+                src="img/cat.gif"
+                class="img-fluid w-100"
+                alt="Sample image"
+              />
             </div>
-          </div>
-          <div>
-            <img src="img/cat.gif" class="img-fluid w-100" alt="Sample image" />
           </div>
         </div>
       </div>
@@ -185,7 +194,7 @@
       </div>
       <div class="col-12 text-center p-3">
         <strong>Tudo certo!</strong> agora basta você começar a clicar nos
-        anúncios abaixo e ganhar 😄!
+        anúncios abaixo e ganhar 😄! Clique em cima ou no botão.
       </div>
 
       <div id="ad-btn" class="d-flex justify-content-center">
