@@ -2,7 +2,7 @@
 const LOGIN_URL = "login.html";
 
 // Objeto para o banco de dados de usuários baseado em JSON
-var db_usuarios = {};
+var db_usuarios = [];
 
 // Objeto para o usuário corrente
 var usuarioCorrente = {};
@@ -27,22 +27,22 @@ function generateUUID() {
 }
 
 // Dados de usuários para serem utilizados como carga inicial
-const dadosIniciais = {
-  usuarios: [
-    {
-      id: generateUUID(),
-      nome: "admin",
-      cpf: "00000000000",
-      senha: "adm123",
-    },
-    {
-      id: generateUUID(),
-      nome: "admin2",
-      cpf: "00000000000",
-      senha: "adm123",
-    },
-  ],
-};
+const dadosIniciais = [
+  {
+    id: generateUUID(),
+    nome: "admin",
+    cpf: "00000000000",
+    senha: "adm123",
+    balance: "0",
+  },
+  {
+    id: generateUUID(),
+    nome: "admin2",
+    cpf: "00000000000",
+    senha: "adm123",
+    balance: "0",
+  },
+];
 
 // Inicializa o usuarioCorrente e banco de dados de usuários da aplicação de Login
 function initLoginApp() {
@@ -82,8 +82,8 @@ function initLoginApp() {
 function loginUser(cpf, senha) {
   // Verifica todos os itens do banco de dados de usuarios
   // para localizar o usuário informado no formulario de login
-  for (var i = 0; i < db_usuarios.usuarios.length; i++) {
-    var usuario = db_usuarios.usuarios[i];
+  for (var i = 0; i < db_usuarios.length; i++) {
+    var usuario = db_usuarios[i];
 
     // Se encontrou login, carrega usuário corrente e salva no Session Storage
     if (cpf == usuario.cpf && senha == usuario.senha) {
@@ -91,6 +91,7 @@ function loginUser(cpf, senha) {
       usuarioCorrente.nome = usuario.nome; // NOME DE USER ARMAZENADO EM usuarioCorrente.nome
       usuarioCorrente.cpf = usuario.cpf;
       usuarioCorrente.senha = usuario.senha;
+      usuarioCorrente.balance = usuario.balance;
 
       // Salva os dados do usuário corrente no Session Storage, mas antes converte para string
       sessionStorage.setItem(
@@ -108,6 +109,57 @@ function loginUser(cpf, senha) {
   return false;
 }
 
+function existsCPF(cpf) {
+  cpf = cpf.replace(/[^\d]+/g, "");
+  var Soma;
+  var Resto;
+  Soma = 0;
+  if (cpf == "00000000000") return false;
+
+  for (i = 1; i <= 9; i++)
+    Soma = Soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
+  Resto = (Soma * 10) % 11;
+
+  if (Resto == 10 || Resto == 11) Resto = 0;
+  if (Resto != parseInt(cpf.substring(9, 10))) return false;
+
+  Soma = 0;
+  for (i = 1; i <= 10; i++)
+    Soma = Soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
+  Resto = (Soma * 10) % 11;
+
+  if (Resto == 10 || Resto == 11) Resto = 0;
+  if (Resto != parseInt(cpf.substring(10, 11))) return false;
+  return true;
+}
+
+function validateCPF(cpf) {
+  if (existsCPF(cpf) == false) {
+    $(
+      '<div class="alert alert-danger" role="alert">O CPF informado não é válido.</div>'
+    )
+      .appendTo("#alerta-campos")
+      .fadeIn(300)
+      .delay(3000)
+      .fadeOut(400);
+    return false;
+  }
+
+  for (var i = 0; i < db_usuarios.length; i++) {
+    if (cpf == db_usuarios[i].cpf) {
+      $(
+        '<div class="alert alert-danger" role="alert">Já existe um usuário cadastrado com esse CPF.</div>'
+      )
+        .appendTo("#alerta-campos")
+        .fadeIn(300)
+        .delay(3000)
+        .fadeOut(400);
+      return false;
+    }
+  }
+  return true;
+}
+
 function addUser(nome, cpf, senha) {
   // Cria um objeto de usuario para o novo usuario
   let newId = generateUUID();
@@ -116,10 +168,11 @@ function addUser(nome, cpf, senha) {
     nome: nome,
     cpf: cpf,
     senha: senha,
+    balance: 0,
   };
 
   // Inclui o novo usuario no banco de dados baseado em JSON
-  db_usuarios.usuarios.push(usuario);
+  db_usuarios.push(usuario);
 
   // Salva o novo banco de dados com o novo usuário no localStorage
   localStorage.setItem("db_usuarios", JSON.stringify(db_usuarios));
